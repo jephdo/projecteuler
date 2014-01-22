@@ -20,4 +20,8 @@ def sum_of_multiples2(ceiling):
         
         return multiple * sum(i+1 for i in range(num_of_multiples))
     
-    return g(3, ceiling) + g(5, ceiling)
+    return g(3, ceiling) + g(5, ceiling) - g(15, ceiling) # remove duplicates
+    
+if __name__ == '__main__':
+    print(sum_of_multiples(1000))
+    print(sum_of_multiples2(1000))
