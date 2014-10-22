@@ -6,6 +6,8 @@ What is the smallest positive number that is evenly divisible by all of the
 numbers from 1 to 20?
 """
 
+import operator
+
 def factorize(n):
     """Return a dictionary of factors for a given number.
 
@@ -38,9 +40,9 @@ def combine_factors(fs):
         for k,v in factors.items():
             A[k] = max(A.get(k, 0), v)
 
-    mult = lambda p, q: p * q
+    mul = operator.mul
 
-    return reduce(mult, [k**v for k,v in A.items()])
+    return reduce(mul, [k**v for k,v in A.items()])
 
 def smallest_multiple(n):
     return combine_factors(factorize(i) for i in range(1,n+1))
